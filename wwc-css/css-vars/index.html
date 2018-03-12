@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <style>
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+    html, body { margin: 0; padding: 0; }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .Cover {
+      background: red;
+      height: 50vh;
+      overflow: hidden;
+    }
+    .Content {
+      font-size: 21px;
+      line-height: 1.6;
+      max-width: 680px;
+      padding: 30px;
+      margin: 0px auto;
+    }
+    .MM-Cover {
+      opacity: var(--MM-Cover-fadeTo);
+      transform: var(--MM-Cover-scaleTo);
+    }
+    .MM-BackgroundColor {
+      background: var(--MM-Color);
+    }
+  </style>
+  <body class='MM-BackgroundColor'>
+    <div class='Cover'>
+      <img src='./img.jpg' class='MM-Cover' />
+    </div>
+    <input type='color' onchange='magicColor(event)' />
+    <div class="Content anyipsum-output"><p>Bacon ipsum dolor amet ball tip pork porchetta venison filet mignon swine.  Leberkas shank frankfurter bresaola kielbasa cupim, hamburger tenderloin prosciutto pastrami landjaeger ball tip sirloin filet mignon flank.  Strip steak beef ribs bacon kevin pork loin.  Prosciutto meatloaf buffalo, turducken porchetta cupim biltong flank pork belly tongue kielbasa salami pork ribeye picanha.  Doner andouille swine tail.  Turkey doner hamburger cupim salami tenderloin.  Tail kielbasa picanha, buffalo doner meatball meatloaf jerky pork chop capicola kevin.</p><p>Pork drumstick ham hock, strip steak tri-tip tail sausage flank sirloin kielbasa jowl pork chop pastrami shankle prosciutto.  Rump pork chop porchetta biltong.  Short ribs sirloin cupim strip steak.  Flank t-bone turkey andouille pork chop ribeye ground round rump biltong cow.</p><p>Flank sirloin short ribs, biltong shank boudin bacon ball tip kevin turkey meatloaf shankle tongue burgdoggen.  Shoulder frankfurter biltong venison pork loin pork belly buffalo doner bacon leberkas short loin ground round salami.  Ham turducken short loin tenderloin ground round flank.  Filet mignon salami ball tip t-bone cow shank burgdoggen sausage ground round jowl pork flank capicola.  Ground round kevin salami turkey pork chop porchetta jowl tongue boudin prosciutto leberkas cupim strip steak corned beef.  Alcatra hamburger drumstick venison, corned beef chuck shank t-bone.</p><p>Bresaola tail meatloaf hamburger shank, pig andouille short loin doner strip steak ball tip chuck tongue.  Leberkas boudin shankle porchetta meatball jowl.  Beef chuck sausage kevin, landjaeger ham hock cupim cow brisket alcatra prosciutto salami hamburger t-bone.  Prosciutto venison bacon, chuck capicola jowl ground round ham hock salami ham filet mignon turducken t-bone pancetta.  Filet mignon flank drumstick capicola.  Boudin venison burgdoggen, landjaeger pork loin chicken short loin salami cow meatball jerky ham hock beef leberkas beef ribs.</p><p>Hamburger shankle pork loin cupim picanha shoulder.  Alcatra leberkas filet mignon sausage ball tip turducken fatback pork belly turkey chicken swine tenderloin porchetta.  Bacon pork bresaola capicola.  Filet mignon corned beef short ribs tail.</p><p>Bacon ipsum dolor amet ball tip pork porchetta venison filet mignon swine.  Leberkas shank frankfurter bresaola kielbasa cupim, hamburger tenderloin prosciutto pastrami landjaeger ball tip sirloin filet mignon flank.  Strip steak beef ribs bacon kevin pork loin.  Prosciutto meatloaf buffalo, turducken porchetta cupim biltong flank pork belly tongue kielbasa salami pork ribeye picanha.  Doner andouille swine tail.  Turkey doner hamburger cupim salami tenderloin.  Tail kielbasa picanha, buffalo doner meatball meatloaf jerky pork chop capicola kevin.</p><p>Pork drumstick ham hock, strip steak tri-tip tail sausage flank sirloin kielbasa jowl pork chop pastrami shankle prosciutto.  Rump pork chop porchetta biltong.  Short ribs sirloin cupim strip steak.  Flank t-bone turkey andouille pork chop ribeye ground round rump biltong cow.</p><p>Flank sirloin short ribs, biltong shank boudin bacon ball tip kevin turkey meatloaf shankle tongue burgdoggen.  Shoulder frankfurter biltong venison pork loin pork belly buffalo doner bacon leberkas short loin ground round salami.  Ham turducken short loin tenderloin ground round flank.  Filet mignon salami ball tip t-bone cow shank burgdoggen sausage ground round jowl pork flank capicola.  Ground round kevin salami turkey pork chop porchetta jowl tongue boudin prosciutto leberkas cupim strip steak corned beef.  Alcatra hamburger drumstick venison, corned beef chuck shank t-bone.</p><p>Bresaola tail meatloaf hamburger shank, pig andouille short loin doner strip steak ball tip chuck tongue.  Leberkas boudin shankle porchetta meatball jowl.  Beef chuck sausage kevin, landjaeger ham hock cupim cow brisket alcatra prosciutto salami hamburger t-bone.  Prosciutto venison bacon, chuck capicola jowl ground round ham hock salami ham filet mignon turducken t-bone pancetta.  Filet mignon flank drumstick capicola.  Boudin venison burgdoggen, landjaeger pork loin chicken short loin salami cow meatball jerky ham hock beef leberkas beef ribs.</p><p>Hamburger shankle pork loin cupim picanha shoulder.  Alcatra leberkas filet mignon sausage ball tip turducken fatback pork belly turkey chicken swine tenderloin porchetta.  Bacon pork bresaola capicola.  Filet mignon corned beef short ribs tail.</p></div>
+    <script>
+      const magicMoveCover = () => {
+        const maxSize = 500
+        const scrollY = window.scrollY
+        if (scrollY > maxSize) return
+        const amount = (scrollY / maxSize)
+        const scaleTo = 1 + amount
+        const fadeTo = 1 - amount
+        requestAnimationFrame(() => {
+          document.body.style.setProperty(
+            '--MM-Cover-scaleTo', `scale(${scaleTo})`
+          )
+          document.body.style.setProperty(
+            '--MM-Cover-fadeTo', fadeTo
+          )
+        })
+      }
+
+      const magicColor = (event) => {
+        const value = event.target.value
+        document.body.style.setProperty(
+          '--MM-Color', value
+        )
+      }
+
+      window.addEventListener('scroll', magicMoveCover)
+    </script>
+  </body>
+</html>

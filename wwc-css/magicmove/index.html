@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+        --magicTransition: all 500ms var(--easeOutCubic);
+        --backgroundColor: white;
+        --textColor: black;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      figure {
+        margin: 0;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      body {
+        background: var(--backgroundColor);
+        color: var(--textColor);
+        transition: all 500ms var(--easeOutCubic);
+      }
+
+      body.isDarkMode {
+        --backgroundColor: black;
+        --textColor: white;
+      }
+
+
+      .Section {
+        padding: 80px 30px;
+        max-width: 680px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .Cover {
+        align-items: center;
+        display: flex;
+        color: white;
+        justify-content: center;
+        height: 100vh;
+        max-height: 720px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+      .Cover__title {
+        font-size: 64px;
+      }
+      .Cover__image {
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .Cover__content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .MagicCover {
+        opacity: var(--magicCoverFade);
+        transform: var(--magicCoverScale);
+        transition: all 500ms var(--easeOutCubic);
+      }
+
+
+      .AvatarWrapper {
+        --size: 200px;
+        height: var(--size);
+        width: var(--size);
+        margin: auto;
+      }
+      .Avatar {
+        border-radius: 99999px;
+        box-shadow:
+          0 1px 4px rgba(0, 0, 0, 0.2),
+          0 4px 16px rgba(0, 0, 0, 0.2),
+          0 20px 40px rgba(0, 0, 0, 0.2);
+        height: var(--size);
+        margin: auto;
+        overflow: hidden;
+        width: var(--size);
+      }
+
+
+      .Controls {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 10;
+        line-height: 1;
+      }
+
+
+      .MagicOverlay {
+        background: var(--magicColor);
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: opacity 1s ease;
+        will-change: opacity background;
+        z-index: 1;
+      }
+      .MagicOverlay:hover {
+        opacity: 0.75;
+      }
+
+
+      .MagicMove {
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        transform: var(--magicMove);
+      }
+
+      .MagicDrag {
+        cursor: -webkit-grab;
+        cursor: grab;
+        transform: var(--magicDrag);
+        transition: transform 200ms var(--easeOutCubic);
+        user-select: none;
+        will-change: transform;
+      }
+      .is-dragging {
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+      }
+
+      .MagicContent p {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: var(--magicTransition);
+      }
+      .MagicContent.is-active p {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="Cover">
+      <div class="Cover__content">
+        <div class="AvatarWrapper MagicDrag">
+          <div class="Avatar MagicMove">
+            <img src="./avatar.jpg" />
+          </div>
+        </div>
+        <div class="Cover__title">
+          Hi! I'm Betty!
+        </div>
+      </div>
+      <div
+        class="Cover__image MagicCover"
+        style="background-image:url('./cover.jpg')"
+      ></div>
+    </div>
+
+    <div class="MagicProgress"></div>
+    <div class="Section MagicContent">
+      <h1>My Cool Site</h1>
+<p>Bacon ipsum dolor amet ball tip pork porchetta venison filet mignon swine.  Leberkas shank frankfurter bresaola kielbasa cupim, hamburger tenderloin prosciutto pastrami landjaeger ball tip sirloin filet mignon flank.  Strip steak beef ribs bacon kevin pork loin.  Prosciutto meatloaf buffalo, turducken porchetta cupim biltong flank pork belly tongue kielbasa salami pork ribeye picanha.  Doner andouille swine tail.  Turkey doner hamburger cupim salami tenderloin.  Tail kielbasa picanha, buffalo doner meatball meatloaf jerky pork chop capicola kevin.</p><p>Pork drumstick ham hock, strip steak tri-tip tail sausage flank sirloin kielbasa jowl pork chop pastrami shankle prosciutto.  Rump pork chop porchetta biltong.  Short ribs sirloin cupim strip steak.  Flank t-bone turkey andouille pork chop ribeye ground round rump biltong cow.</p><p>Flank sirloin short ribs, biltong shank boudin bacon ball tip kevin turkey meatloaf shankle tongue burgdoggen.  Shoulder frankfurter biltong venison pork loin pork belly buffalo doner bacon leberkas short loin ground round salami.  Ham turducken short loin tenderloin ground round flank.  Filet mignon salami ball tip t-bone cow shank burgdoggen sausage ground round jowl pork flank capicola.  Ground round kevin salami turkey pork chop porchetta jowl tongue boudin prosciutto leberkas cupim strip steak corned beef.  Alcatra hamburger drumstick venison, corned beef chuck shank t-bone.</p><p>Bresaola tail meatloaf hamburger shank, pig andouille short loin doner strip steak ball tip chuck tongue.  Leberkas boudin shankle porchetta meatball jowl.  Beef chuck sausage kevin, landjaeger ham hock cupim cow brisket alcatra prosciutto salami hamburger t-bone.  Prosciutto venison bacon, chuck capicola jowl ground round ham hock salami ham filet mignon turducken t-bone pancetta.  Filet mignon flank drumstick capicola.  Boudin venison burgdoggen, landjaeger pork loin chicken short loin salami cow meatball jerky ham hock beef leberkas beef ribs.</p><p>Hamburger shankle pork loin cupim picanha shoulder.  Alcatra leberkas filet mignon sausage ball tip turducken fatback pork belly turkey chicken swine tenderloin porchetta.  Bacon pork bresaola capicola.  Filet mignon corned beef short ribs tail.</p><p>Bacon ipsum dolor amet ball tip pork porchetta venison filet mignon swine.  Leberkas shank frankfurter bresaola kielbasa cupim, hamburger tenderloin prosciutto pastrami landjaeger ball tip sirloin filet mignon flank.  Strip steak beef ribs bacon kevin pork loin.  Prosciutto meatloaf buffalo, turducken porchetta cupim biltong flank pork belly tongue kielbasa salami pork ribeye picanha.  Doner andouille swine tail.  Turkey doner hamburger cupim salami tenderloin.  Tail kielbasa picanha, buffalo doner meatball meatloaf jerky pork chop capicola kevin.</p><p>Pork drumstick ham hock, strip steak tri-tip tail sausage flank sirloin kielbasa jowl pork chop pastrami shankle prosciutto.  Rump pork chop porchetta biltong.  Short ribs sirloin cupim strip steak.  Flank t-bone turkey andouille pork chop ribeye ground round rump biltong cow.</p><p>Flank sirloin short ribs, biltong shank boudin bacon ball tip kevin turkey meatloaf shankle tongue burgdoggen.  Shoulder frankfurter biltong venison pork loin pork belly buffalo doner bacon leberkas short loin ground round salami.  Ham turducken short loin tenderloin ground round flank.  Filet mignon salami ball tip t-bone cow shank burgdoggen sausage ground round jowl pork flank capicola.  Ground round kevin salami turkey pork chop porchetta jowl tongue boudin prosciutto leberkas cupim strip steak corned beef.  Alcatra hamburger drumstick venison, corned beef chuck shank t-bone.</p><p>Bresaola tail meatloaf hamburger shank, pig andouille short loin doner strip steak ball tip chuck tongue.  Leberkas boudin shankle porchetta meatball jowl.  Beef chuck sausage kevin, landjaeger ham hock cupim cow brisket alcatra prosciutto salami hamburger t-bone.  Prosciutto venison bacon, chuck capicola jowl ground round ham hock salami ham filet mignon turducken t-bone pancetta.  Filet mignon flank drumstick capicola.  Boudin venison burgdoggen, landjaeger pork loin chicken short loin salami cow meatball jerky ham hock beef leberkas beef ribs.</p><p>Hamburger shankle pork loin cupim picanha shoulder.  Alcatra leberkas filet mignon sausage ball tip turducken fatback pork belly turkey chicken swine tenderloin porchetta.  Bacon pork bresaola capicola.  Filet mignon corned beef short ribs tail.</p>
+    </div>
+
+    <div class="Controls">
+      <select onchange="changeTheme(event)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <input type="color" onchange="changeThemeColor(event)" />
+    </div>
+
+    <script>
+        const MagicContent = document.querySelector('.MagicContent')
+        const MagicDrag = document.querySelector('.MagicDrag')
+        const Cover = document.querySelector('.Cover')
+        const AvatarWrapper = document.querySelector('.AvatarWrapper')
+        const RAF = fn => requestAnimationFrame(fn)
+        const updateMagicStyles = (variable, styles) => {
+          RAF(() => {
+            document.styleSheets[0].rules[0].style.setProperty(variable, styles)
+          })
+        }
+
+        const magicMove = event => {
+          const width = (document.body.clientWidth / 2)
+          const height = (document.body.clientHeight / 2)
+
+          const coorX = (width - event.pageX)
+          const coorY = (height - event.pageY)
+
+          const degX  = `${(coorY / height) * 20}deg`
+          const degY  = `${(coorX / width) * -20}deg`
+
+          updateMagicStyles(
+            '--magicMove', `
+              perspective(600px)
+              rotateX(${degX})
+              rotateY(${degY})
+            `)
+        }
+        document.addEventListener('mousemove', magicMove)
+
+
+        const magicCover = () => {
+          const maxSize = 500
+          const scrollY = window.scrollY
+          if (scrollY > maxSize) return
+          const amount = (scrollY / maxSize)
+          const scale = 1 + amount
+          const fade = 1 - amount
+          updateMagicStyles(
+            '--magicCoverScale', `scale(${scale})`
+          )
+          updateMagicStyles(
+            '--magicCoverFade', fade
+          )
+        }
+        window.addEventListener('scroll', magicCover)
+
+
+        const changeTheme = (event) => {
+          const value = event.target.value
+          if (value === 'dark') {
+            document.body.classList.add('isDarkMode')
+          } else {
+            document.body.classList.remove('isDarkMode')
+          }
+        }
+
+
+        const changeThemeColor = event => {
+          const value = event.target.value
+          console.log(value)
+          document.body.style.setProperty(
+            '--backgroundColor', `${value}`
+          )
+        }
+
+
+        document.querySelectorAll('.MagicContent p')
+          .forEach((node, index) => {
+            node.style.transitionDelay = `${index * 100}ms`
+          })
+        const magicContent = () => {
+          if ((window.scrollY + (window.innerHeight / 5) >= MagicContent.offsetTop) && !MagicContent.classList.contains('is-active')) {
+            MagicContent.classList.add('is-active')
+            window.removeEventListener('scroll', magicContent)
+          }
+        }
+        window.addEventListener('scroll', magicContent)
+
+
+        let coords
+        const dragStart = event => {
+          event.preventDefault()
+          MagicDrag.classList.add('is-dragging')
+          coords = {
+            x: event.pageX,
+            y: event.pageY,
+          }
+        }
+        const dragMove = event => {
+          if (!MagicDrag.classList.contains('is-dragging')) return
+          event.preventDefault()
+          const moveX = event.pageX - coords.x
+          const moveY = event.pageY - coords.y
+
+          updateMagicStyles(
+            '--magicDrag', `translate(${moveX}px, ${moveY}px)`)
+        }
+        const dragEnd = event => {
+          event.preventDefault()
+          MagicDrag.classList.remove('is-dragging')
+          coords = {}
+          updateMagicStyles(
+            '--magicDrag', `translate(0px, 0px)`)
+        }
+        MagicDrag.addEventListener('mousedown', dragStart)
+        document.addEventListener('mousemove', dragMove)
+        document.addEventListener('mouseup', dragEnd)
+        MagicDrag.addEventListener('touchstart', dragStart)
+        document.addEventListener('touchmove', dragMove)
+        document.addEventListener('touchend', dragEnd)
+
+
+    </script>
+  </body>
+</html>

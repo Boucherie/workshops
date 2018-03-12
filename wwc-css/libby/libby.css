@@ -1,0 +1,59 @@
+.ax,
+[class*="ax-stagger-"] > * {
+  transition-timing-function: ease;
+  transition-duration: 300ms;
+  transition-property: all;
+}
+
+.ax-fade,
+.ax-stagger-fade > * {
+  opacity: 0;
+}
+.ax-fade.active,
+.ax-stagger-fade.active > * {
+  opacity: 1;
+}
+
+.ax-up,
+.ax-stagger-up > * {
+  transform: translateY(10px);
+}
+.ax-up.active,
+.ax-stagger-up.active > * {
+  transform: translateY(0px);
+}
+
+.ax-left {
+  transform: translateX(-10px);
+}
+.ax-left.active {
+  transform: translateX(0px);
+}
+
+.ax-right {
+  transform: translateX(50px);
+}
+.ax-right.active {
+  transform: translateX(0px);
+}
+
+.ax-color {
+  background: red;
+}
+.ax-color.active {
+  background: blue;
+}
+
+.ax-fancy {
+  transform: translateX(-200px) translateY(-20px) scale(0.8);
+}
+.ax-fancy.active {
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+.ax-tf-bounce {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.ax-tf-linear {
+  transition-timing-function: linear;
+}

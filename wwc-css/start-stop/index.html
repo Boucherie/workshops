@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+  :root {
+    --moveFrom: translate(0, 0);
+    --moveTo: translate(100px, 300px);
+  }
+  #node {
+    background: dodgerblue;
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+  }
+  .move {
+    animation-name: move;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+  }
+  @keyframes move {
+    from {
+      transform: var(--moveFrom);
+    }
+    to {
+      transform: var(--moveTo);
+    }
+  }
+  </style>
+</head>
+<body>
+  <div id='node' class='move'></div>
+  <script>
+    const node = document.querySelector('#node')
+    let isMouseDown = false
+    // Assumes there's at least one stylesheet
+    const updateStyle = (variable, styles) => {
+      document.styleSheets[0].rules[0].style.setProperty(variable, styles)
+    }
+
+    const onMouseDown = (event) => {
+      isMouseDown = true
+      console.log('mousedown')
+      const BCR = node.getBoundingClientRect()
+      updateStyle(
+        '--moveFrom',
+        `translate(${BCR.x}px, ${BCR.y}px)`
+      )
+      node.style.animationPlayState = 'paused'
+    }
+
+    const onMouseUp = (event) => {
+      isMouseDown = false
+      updateStyle(
+        '--moveTo',
+        `translate(${event.pageX}px, ${event.pageY}px)`
+      )
+      console.log('mouseup')
+      node.classList.remove('move')
+      void node.offsetWidth
+      node.classList.add('move')
+      node.style.animationPlayState = 'running'
+    }
+
+    document.addEventListener('mousedown', onMouseDown)
+    document.addEventListener('mouseup', onMouseUp)
+  </script>
+</body>
+</html>

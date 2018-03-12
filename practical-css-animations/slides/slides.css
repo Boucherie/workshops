@@ -1,0 +1,76 @@
+/* Practical CSS Animations Workshop */
+/* CSS */
+/* Add your CSS style rules here */
+
+
+/* CSS Normalization code */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+/* CSS Normalization code */
+
+
+/* Start writing code here! */
+html {
+  font-size: 24px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1 {font-size: 4.000rem;}
+h2 {font-size: 3.000rem;}
+h3 {font-size: 2.500rem;}
+h4 {font-size: 2.000rem;}
+h5 {font-size: 1.000rem;}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #111;
+  line-height: 1.1;
+  margin: 0 0 15px;
+}
+
+.Slide {
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px;
+}
+.Slide__content {
+  max-width: 720px;
+  text-align: left;
+  width: 100%;
+}
+
+
+.ax,
+[class*="ax-stagger-"] > * {
+  transition-property: all;
+  transition-duration: 700ms;
+  transition-timing-function: ease;
+}
+
+.ax-fadeUp,
+.ax-stagger-fadeUp > * {
+  opacity: 0;
+  transform: translateY(10%);
+}
+.ax-fadeUp.active,
+.ax-stagger-fadeUp.active > * {
+  opacity: 1;
+  transform: translateY(0%);
+}
