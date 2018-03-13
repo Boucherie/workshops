@@ -10,22 +10,35 @@ Array.from(SlideNodeCollection).forEach((node, index) => {
 
 
 const deactiveStaggerOnAll = () => {
-  Array.from(SlideNodeCollection).forEach(node => {
-    node.classList.remove('active')
-    node.children[0].classList.remove('active')
-  })
+  const staggerNodes = document.querySelectorAll('[class*="ax-stagger"]')
+  Array.from(staggerNodes)
+    .forEach(n => n.classList.remove('active'))
+
+  Array.from(SlideNodeCollection)
+    .forEach(n => n.classList.remove('active'))
 }
 const activateStagger = (slideIndex) => {
   deactiveStaggerOnAll()
   const currentSlideNode = document.querySelector(`#slide-${slideIndex}`)
   const contentNode = currentSlideNode.children[0]
+  const staggerNodes = currentSlideNode.querySelectorAll('[class*="ax-stagger"]')
 
-  Array.from(contentNode.children).forEach((child, index) => {
-    child.style.transitionDelay = `${(index * 100)}ms`
-  })
+  staggerChildNodes(contentNode)
+
+  Array.from(staggerNodes)
+    .forEach(child => {
+      staggerChildNodes(child)
+      child.classList.add('active')
+    })
 
   currentSlideNode.classList.add('active')
-  currentSlideNode.children[0].classList.add('active')
+}
+const staggerChildNodes = node => {
+  const delayMultiplier = 200
+  Array.from(node.children)
+    .forEach((child, index) => {
+      child.style.transitionDelay = `${(index * delayMultiplier)}ms`
+    })
 }
 
 
