@@ -4,15 +4,21 @@
   <head>
     <title>Practical CSS Animations</title>
     <!-- This is your CSS file -->
+    <link rel='stylesheet' href='./animations.css' />
     <link rel='stylesheet' href='./slides.css' />
+    <style>
+      :root {
+        --AX-duration: 1000ms;
+      }
+    </style>
   <head>
   <body>
 
 
     <!-- ADD HTML HERE: START -->
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
-        <h1 class='ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
+        <h1 class='ax-List stagger ax-fadeUp'>
           <span>Practical</span>
           <span>CSS</span>
           <span>Animations</span>
@@ -22,9 +28,9 @@
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h1>About Me</h1>
-        <div class='ax-stagger-fadeLeft'>
+        <div class='ax-List stagger ax-fadeLeft'>
           <p>🤓 I'm a Design Engineer at <a href='https://www.helpscout.com'>Help Scout</a>.</p>
           <p>🎛 I love CSS.</p>
           <p>✨ I love animations.</p>
@@ -33,9 +39,9 @@
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h1>Workshop Goalz</h1>
-        <div class='ax-stagger-fadeLeft'>
+        <div class='ax-List stagger ax-fadeLeft'>
           <p>🎞 Basic UI animation principles.</p>
           <p>💪 Build an animation library. From scratch.</p>
           <p>⚡️ Dynamic animations.</p>
@@ -45,32 +51,32 @@
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h2>🎞</h2>
         <h1>Animation Principles</h1>
       </div>
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h2>🤔</h2>
         <h1>Why animate?</h1>
       </div>
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h2>Animation is</h2>
         <h1>Communication</h1>
       </div>
     </div>
 
     <div class='Slide'>
-      <div class='Slide__content ax-stagger-fadeUp'>
+      <div class='Slide__content ax-List stagger ax-fadeUp'>
         <h2>But also</h2>
-        <h1 class='ax-stagger-fadeRight'>
-          <span>Delight</span>
-          <span>🎉</span>
+        <h1 class='ax-List stagger ax-fadeUp'>
+          <span class='ax-tf-elastic'>Delight</span>
+          <span class='ax-tf-elastic'>🎉</span>
         </h1>
       </div>
     </div>

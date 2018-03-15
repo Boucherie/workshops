@@ -57,46 +57,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-.ax,
-[class*="ax-stagger-"] > * {
-  transition-property: all;
-  transition-duration: 1000ms;
-  transition-timing-function: ease;
-}
-
-:not(div)[class*="ax-stagger-"] > * {
+:not(div).ax-List > * {
   display: inline-block;
-}
-
-.ax-fadeUp,
-.ax-stagger-fadeUp > * {
-  opacity: 0;
-  transform: translateY(10%);
-}
-.ax-fadeUp.active,
-.ax-stagger-fadeUp.active > * {
-  opacity: 1;
-  transform: translateY(0%);
-}
-
-.ax-fadeLeft,
-.ax-stagger-fadeLeft > * {
-  opacity: 0;
-  transform: translateX(10%);
-}
-.ax-fadeLeft.active,
-.ax-stagger-fadeLeft.active > * {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.ax-fadeRight,
-.ax-stagger-fadeRight > * {
-  opacity: 0;
-  transform: translateX(-10%);
-}
-.ax-fadeRight.active,
-.ax-stagger-fadeRight.active > * {
-  opacity: 1;
-  transform: translateX(0%);
 }

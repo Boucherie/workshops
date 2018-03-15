@@ -16,3 +16,35 @@ html, body {
 
 
 /* Start writing code here! */
+div {
+  background: #ddd;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.ax,
+[class*="ax-stagger-"] > * {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.ax-fade,
+.ax-stagger-fade > * {
+  opacity: 0;
+}
+.ax-fade.active,
+.ax-stagger-fade.active > * {
+  opacity: 1;
+}
+
+.ax-up {
+  transform: translateY(10px);
+}
+.ax-up.active {
+  transform: translateY(0px);
+}
+
+.ax-tf-bounce {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

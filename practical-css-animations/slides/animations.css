@@ -1,0 +1,112 @@
+:root {
+  --AX-delay: 0;
+  --AX-staggerDelay: 200;
+  --AX-duration: 300ms;
+}
+
+.ax-El,
+.ax-List > * {
+  transition-property: all;
+  transition-delay: var(--AX-delay);
+  transition-duration: var(--AX-duration);
+  transition-timing-function: ease;
+}
+
+
+/* Sequences */
+.ax-El.ax-fade,
+.ax-List.ax-fade > * {
+  opacity: 0;
+}
+.ax-El.ax-fade.active,
+.ax-List.ax-fade.active > * {
+  opacity: 1;
+}
+
+.ax-El.ax-up,
+.ax-List.ax-up > * {
+  transform: translateY(20%);
+}
+.ax-El.ax-up.active,
+.ax-List.ax-up.active > * {
+  transform: translateY(0);
+}
+
+.ax-El.ax-fadeUp,
+.ax-List.ax-fadeUp > * {
+  opacity: 0;
+  transform: translateY(20%);
+}
+.ax-El.ax-fadeUp.active,
+.ax-List.ax-fadeUp.active > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ax-El.ax-fadeLeft,
+.ax-List.ax-fadeLeft > * {
+  opacity: 0;
+  transform: translateX(20%);
+}
+.ax-El.ax-fadeLeft.active,
+.ax-List.ax-fadeLeft.active > * {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ax-El.ax-fadeRight,
+.ax-List.ax-fadeRight > * {
+  opacity: 0;
+  transform: translateX(-20%);
+}
+.ax-El.ax-fadeRight.active,
+.ax-List.ax-fadeRight.active > * {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Timing Functions */
+.ax-tf-bounce {
+  transition-timing-function: cubic-bezier(0.680, -0.650, 0.265, 1.650);
+}
+
+.ax-tf-elastic {
+  transition-timing-function: cubic-bezier(0.680, -1.500, 0.265, 2.500);
+}
+
+
+
+
+/* Staggering */
+.ax-List.stagger.active > * {
+  --AX-index: 0;
+  transition-delay: calc(
+    (var(--AX-index) * var(--AX-staggerDelay) + var(--AX-delay)) * 1ms
+  );
+}
+
+.ax-List.stagger.active > *:nth-child(1) {
+  --AX-index: 0;
+}
+.ax-List.stagger.active > *:nth-child(2) {
+  --AX-index: 1;
+}
+.ax-List.stagger.active > *:nth-child(3) {
+  --AX-index: 2;
+}
+.ax-List.stagger.active > *:nth-child(4) {
+  --AX-index: 3;
+}
+.ax-List.stagger.active > *:nth-child(5) {
+  --AX-index: 4;
+}
+.ax-List.stagger.active > *:nth-child(6) {
+  --AX-index: 5;
+}
+.ax-List.stagger.active > *:nth-child(7) {
+  --AX-index: 6;
+}
+.ax-List.stagger.active > *:nth-child(8) {
+  --AX-index: 7;
+}
