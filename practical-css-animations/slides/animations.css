@@ -83,35 +83,38 @@
 
 
 /* Staggering */
-.ax-List.stagger.active > * {
-  --AX-index: 0;
+.ax-List.stagger > * {
   transition-delay: calc(
-    (var(--AX-index) * var(--AX-staggerDelay) + var(--AX-delay)) * 1ms
+    (var(--nIndex) * var(--AX-staggerDelay) + var(--AX-delay)) * 1ms
   );
 }
 
-.ax-List.stagger.active > *:nth-child(1) {
-  --AX-index: 0;
+
+* > *:nth-child(1) {
+  --nIndex: 0;
 }
-.ax-List.stagger.active > *:nth-child(2) {
-  --AX-index: 1;
+* > *:nth-child(2) {
+  --nIndex: 1;
 }
-.ax-List.stagger.active > *:nth-child(3) {
-  --AX-index: 2;
+* > *:nth-child(3) {
+  --nIndex: 2;
 }
-.ax-List.stagger.active > *:nth-child(4) {
-  --AX-index: 3;
+* > *:nth-child(4) {
+  --nIndex: 3;
 }
-.ax-List.stagger.active > *:nth-child(5) {
-  --AX-index: 4;
+* > *:nth-child(5) {
+  --nIndex: 4;
 }
-.ax-List.stagger.active > *:nth-child(6) {
-  --AX-index: 5;
+* > *:nth-child(6) {
+  --nIndex: 5;
 }
-.ax-List.stagger.active > *:nth-child(7) {
-  --AX-index: 6;
+* > *:nth-child(7) {
+  --nIndex: 6;
 }
-.ax-List.stagger.active > *:nth-child(8) {
-  --AX-index: 7;
+* > *:nth-child(8) {
+  --nIndex: 7;
 }
 /* Add more as needed! */
+* > *:nth-child(n+9) {
+  --nIndex: 8;
+}
