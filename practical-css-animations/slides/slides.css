@@ -22,7 +22,7 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 500;
@@ -36,7 +36,7 @@ h3 {font-size: 2.500rem;}
 h4 {font-size: 2.000rem;}
 h5 {font-size: 1.000rem;}
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
   color: #111;
   line-height: 1.1;
   margin: 0 0 15px;
@@ -49,6 +49,7 @@ h1,h2,h3,h4,h5,h6 {
   justify-content: center;
   min-height: 100vh;
   padding: 30px;
+  overflow-x: hidden;
 }
 .Slide__content {
   max-width: 720px;

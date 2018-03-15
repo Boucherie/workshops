@@ -2,6 +2,9 @@
   --AX-delay: 0;
   --AX-staggerDelay: 200;
   --AX-duration: 300ms;
+  --AX-timingFunction: ease;
+  --AX-bounce: cubic-bezier(0.680, -0.650, 0.265, 1.650);
+  --AX-elastic: cubic-bezier(0.680, -1.500, 0.265, 2.500);
 }
 
 .ax-El,
@@ -9,7 +12,8 @@
   transition-property: all;
   transition-delay: var(--AX-delay);
   transition-duration: var(--AX-duration);
-  transition-timing-function: ease;
+  transition-timing-function: var(--AX-timingFunction);
+  will-change: opacity, transform;
 }
 
 
@@ -110,3 +114,4 @@
 .ax-List.stagger.active > *:nth-child(8) {
   --AX-index: 7;
 }
+/* Add more as needed! */
