@@ -17,7 +17,12 @@ html, body {
 
 /* Start writing code here! */
 html {
-  font-size: 32px;
+  font-size: 24px;
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 32px;
+  }
 }
 
 body {
