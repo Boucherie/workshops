@@ -1,16 +1,17 @@
 // Practical CSS Animations Workshop
 // Javascript
-// Add your Javascript code here
 
-// document.addEventListener('click', (event) => {
-//   const element = event.target
-//   element.classList.toggle('active')
-// })
-//
-// setTimeout(() => {
-//   Array.from(document.querySelectorAll('div')).forEach(n => n.classList.toggle('active'))
-// }, 1000)
+// A tiny bit of Javascript to help trigger your animations.
+document.addEventListener('click', (event) => {
+  // This is the thing you clicked.
+  const element = event.target
+  // Trying to see if you've specified an animation target
+  const targetSelector = element.getAttribute('data-target')
+  // If not, don't do anything.
+  if (!targetSelector) return
 
-const stagger = document.querySelector('.ax-stagger-fade')
-Array.from(stagger.children).forEach(n => {
+  // Otherwise, find your targets.
+  const target = document.querySelectorAll(targetSelector)
+  // Finally, toggle the "active" class on them to play your animations!
+  Array.from(target).forEach(el => el.classList.toggle('active'))
 })

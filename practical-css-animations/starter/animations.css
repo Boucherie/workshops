@@ -3,48 +3,22 @@
 /* Add your CSS style rules here */
 
 
-/* CSS Normalization code */
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-/* CSS Normalization code */
-
-
 /* Start writing code here! */
-div {
-  background: #ddd;
-  border-radius: 8px;
-  padding: 8px;
-}
 
-.ax,
-[class*="ax-stagger-"] > * {
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: ease;
-}
 
-.ax-fade,
-.ax-stagger-fade > * {
-  opacity: 0;
+/* Settings */
+:root {
 }
-.ax-fade.active,
-.ax-stagger-fade.active > * {
-  opacity: 1;
-}
+/* Settings */
 
-.ax-up {
-  transform: translateY(10px);
-}
-.ax-up.active {
-  transform: translateY(0px);
-}
 
-.ax-tf-bounce {
-  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+/* Components */
+.ax-El {
 }
+/* Components */
+
+
+
+/* Sequences */
+/* Sequences */
