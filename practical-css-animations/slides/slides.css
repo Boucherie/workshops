@@ -19,7 +19,7 @@ html, body {
 html {
   font-size: 18px;
 }
-@media (min-width: 680px) {
+@media (min-height: 540px) and (min-width: 680px) {
   font-size: 24px;
 }
 @media (min-height: 680px) and (min-width: 1140px) {
@@ -38,7 +38,7 @@ body {
   line-height: 1.6;
 }
 
-h1 {font-size: 4.000rem;}
+h1 {font-size: 3.500rem;}
 h2 {font-size: 3.000rem;}
 h3 {font-size: 2.500rem;}
 h4 {font-size: 2.000rem;}
@@ -81,4 +81,62 @@ code {
 
 :not(div).ax-List > * {
   display: inline-block;
+}
+
+
+.Carousel {
+  position: relative;
+  overflow: hidden;
+}
+.Carousel:before,
+.Carousel:after {
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.0));
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 30%;
+  z-index: 2;
+}
+.Carousel:after {
+  left: initial;
+  right: -1px;
+  transform: rotate(180deg);
+}
+.Carousel__content {
+  display: flex;
+  margin-left: -20px;
+  margin-right: -20px;
+  position: relative;
+  transition: all 300ms ease;
+  width: calc(100% + 25% + 60px);
+}
+.Carousel__content.play {
+  animation-name: carousel-slide-x;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+}
+.Carousel__content > * {
+  margin: 0 20px;
+}
+.Box {
+  background-color: dodgerblue;
+  border-radius: 8px;
+  height: 100px;
+  width: 25%;
+}
+@keyframes carousel-slide-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc((20%) * -1))
+  }
+}
+
+
+/* Utilities */
+.tx-300 {
+  font-weight: 300;
 }
